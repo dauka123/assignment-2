@@ -27,7 +27,8 @@ public class MyArrayList<T> implements MyList{
     }
     @Override
     public Object get(int index) {
-        return true;
+        checkIndex(index);
+        return arr[index];
     }
     @Override
     public Object remove(int index) {
