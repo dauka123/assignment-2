@@ -5,6 +5,11 @@ public class MyArrayList<T> implements MyList{
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
+    private void checkIndex(int index){
+        if (size <= index || index < 0){
+            throw new IndexOutOfBoundsException();
+        }
+    }
     @Override
     public int size() {
         return this.size;
