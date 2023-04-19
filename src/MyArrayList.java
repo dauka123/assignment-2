@@ -10,12 +10,7 @@ public class MyArrayList<T> implements MyList{
             throw new IndexOutOfBoundsException();
         }
     }
-    @Override
-    public int size() {
-        return this.size;
-    }
-    @Override
-    public void add(Object item) {
+    private void increaseLength(){
         if (arr.length == size){
             T[] newArr = (T[]) new Object[arr.length * 2];
             for (int i = 0; i < arr.length; i++){
@@ -23,6 +18,14 @@ public class MyArrayList<T> implements MyList{
             }
             arr = newArr;
         }
+    }
+    @Override
+    public int size() {
+        return this.size;
+    }
+    @Override
+    public void add(Object item) {
+        increaseLength();
         arr[size++] = (T) item;
     }
     @Override
@@ -53,6 +56,7 @@ public class MyArrayList<T> implements MyList{
     public void add(Object item, int index) {
 
     }
+
 
     @Override
     public boolean remove(Object item) {
