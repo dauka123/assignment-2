@@ -72,12 +72,6 @@ public class MyArrayList<T> implements MyList{
         }
         return false;
     }
-
-    @Override
-    public void clear() {
-
-    }
-
     @Override
     public int indexOf(Object o) {
         for(int i = 0; i < arr.length; i++){
@@ -87,10 +81,18 @@ public class MyArrayList<T> implements MyList{
         }
         return -1;
     }
-
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = size; i > 0; i--){
+            if (arr[i] == o){
+                return i;
+            }
+        }
+        return -1;
+    }
+    @Override
+    public void clear() {
+
     }
 
     @Override
