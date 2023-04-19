@@ -41,7 +41,12 @@ public class MyArrayList<T> implements MyList{
     }
     @Override
     public boolean contains(Object o) {
-       return true;
+        for (int i = 0; i < arr.length; i++){
+            if (o == arr[i]){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
