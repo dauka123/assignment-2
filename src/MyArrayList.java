@@ -36,8 +36,8 @@ public class MyArrayList<T> implements MyList{
     @Override
     public Object remove(int index) {
         checkIndex(index);
-        for (int i = 0; i < size; i++){
-            arr[index + i] = arr[index + i + 1];
+        for(int i= index + 1; i<=size; i++){
+            arr[i-1] = arr[i];
         }
         this.size--;
         return true;
@@ -54,9 +54,14 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public void add(Object item, int index) {
-
+        increaseLength();
+        checkIndex(index);
+        for (int i = index + 1; i < size; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[index] = (T) item;
+        size++;
     }
-
 
     @Override
     public boolean remove(Object item) {
