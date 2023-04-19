@@ -65,6 +65,11 @@ public class MyArrayList<T> implements MyList{
 
     @Override
     public boolean remove(Object item) {
+        int index = indexOf(item);
+        if (index != -1){
+            remove(index);
+            return true;
+        }
         return false;
     }
 
