@@ -31,6 +31,11 @@ public class MyArrayList<T> implements MyList{
     }
     @Override
     public Object remove(int index) {
+        checkIndex(index);
+        for (int i = 0; i < arr.length; i++){
+            arr[index + i] = arr[index + i + 1];
+        }
+        this.size--;
         return true;
     }
     @Override
