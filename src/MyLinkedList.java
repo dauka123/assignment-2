@@ -30,7 +30,14 @@ public class MyLinkedList<E> implements MyList{
 
     @Override
     public void add(Object item) {
-
+        Node<E> newNode = (Node<E>) new Node<>(item, null, tail);
+        if (tail == null) {
+            head = newNode;
+        } else {
+            tail.next = newNode;
+        }
+        tail = newNode;
+        size++;
     }
 
     @Override
