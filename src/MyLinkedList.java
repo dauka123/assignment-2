@@ -20,16 +20,24 @@ public class MyLinkedList<E> implements MyList{
         tail = null;
         size = 0;
     }
+    /*
+      @ size - возвращает длину LinkedList
+    */
     @Override
     public int size() {
         return this.size;
     }
-
+    /*
+      @ contains - ищем элемент в листе
+      @ return - возвращает true если элемент в листе
+    */
     @Override
     public boolean contains(Object o) {
         return indexOf(o) != -1;
     }
-
+    /*
+      @ add - добавляет объект в LinkedList
+    */
     @Override
     public void add(Object item) {
         Node<E> newNode = (Node<E>) new Node<>(item, null, tail);
@@ -41,7 +49,10 @@ public class MyLinkedList<E> implements MyList{
         tail = newNode;
         size++;
     }
-
+    /*
+      @ add - добавляет объект в LinkedList в определенный индекс
+      @ проверяет индекс, если он не корректный то выдает ошибку
+    */
     @Override
     public void add(Object item, int index) {
         if (index < 0 || index > size) {
@@ -76,7 +87,10 @@ public class MyLinkedList<E> implements MyList{
             return node;
         }
     }
-
+    /*
+      @ remove удаляет объект из LinkedList
+      @ return true если обьект удален
+    */
     @Override
     public boolean remove(Object item) {
         Node<E> node = head;
@@ -102,7 +116,10 @@ public class MyLinkedList<E> implements MyList{
         }
         size--;
     }
-
+    /*
+      @ remove удаляет объект из LinkedList в определенном индексе
+      @ return Object
+    */
     @Override
     public E remove(int index) {
         if (index < 0 || index >= size) {
@@ -112,14 +129,19 @@ public class MyLinkedList<E> implements MyList{
         removeNode(node);
         return node.item;
     }
-
+    /*
+      @ clear очищает LinkedList
+    */
     @Override
     public void clear() {
         this.head = null;
         this.tail = null;
         size = 0;
     }
-
+    /*
+      @ get возвращает объект из LinkedList в опреденном индексе
+      @ return E
+    */
     @Override
     public E get(int index) {
         if (index < 0 || index >= size) {
@@ -127,7 +149,10 @@ public class MyLinkedList<E> implements MyList{
         }
         return getNode(index).item;
     }
-
+    /*
+      @ indexOf ищет идекс первого вхождения объекта
+      @ return возвращает индекс
+    */
     @Override
     public int indexOf(Object o) {
         int i = 0;
@@ -139,7 +164,10 @@ public class MyLinkedList<E> implements MyList{
         }
         return -1;
     }
-
+    /*
+      @ lastIndexOf ищет индекс последнего вхождения объекта
+      @ return возвращает индекс
+    */
     @Override
     public int lastIndexOf(Object o) {
         int i = size()-1;
