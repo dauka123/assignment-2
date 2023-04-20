@@ -42,7 +42,37 @@ public class MyLinkedList<E> implements MyList{
 
     @Override
     public void add(Object item, int index) {
-
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == size) {
+            add(item);
+            return;
+        }
+        Node<E> node = getNode(index);
+        Node<E> newNode = (Node<E>) new Node<>(item, node, node.previous);
+        if (node.previous == null) {
+            head = newNode;
+        } else {
+            node.previous.next = newNode;
+        }
+        node.previous = newNode;
+        size++;
+    }
+    private Node<E> getNode(int index) {
+        if (index < size / 2) {
+            Node<E> node = head;
+            for (int i = 0; i < index; i++) {
+                node = node.next;
+            }
+            return node;
+        } else {
+            Node<E> node = tail;
+            for (int i = size - 1; i > index; i--) {
+                node = node.previous;
+            }
+            return node;
+        }
     }
 
     @Override
