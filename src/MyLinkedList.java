@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyLinkedList<E> implements MyList{
     private Node<E> head;
     private Node<E> tail;
@@ -152,6 +154,21 @@ public class MyLinkedList<E> implements MyList{
 
     @Override
     public void sort() {
+        Object[] array = toArray();
+        Arrays.sort((E[]) array);
+        clear();
+        for (Object item : array) {
+            add((E) item);
+        }
+    }
 
+    private Object[] toArray() {
+        Object[] array = new Object[size];
+        Node<E> node = head;
+        for (int i = 0; i < size; i++) {
+            array[i] = node.item;
+            node = node.next;
+        }
+        return array;
     }
 }
