@@ -117,8 +117,11 @@ public class MyLinkedList<E> implements MyList{
     }
 
     @Override
-    public Object get(int index) {
-        return null;
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        return getNode(index).item;
     }
 
     @Override
