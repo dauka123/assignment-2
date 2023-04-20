@@ -1,4 +1,7 @@
 public class MyLinkedList<E> implements MyList{
+    private Node<E> head;
+    private Node<E> tail;
+    private int size;
     private class Node<E> {
         E item;
         Node<E> next;
@@ -10,12 +13,14 @@ public class MyLinkedList<E> implements MyList{
             this.previous = prev;
         }
     }
-    private Node<E> head;
-    private Node<E> tail;
-    private int size;
+    public MyLinkedList() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
