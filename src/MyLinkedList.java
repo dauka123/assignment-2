@@ -77,7 +77,28 @@ public class MyLinkedList<E> implements MyList{
 
     @Override
     public boolean remove(Object item) {
+        Node<E> node = head;
+        while (node != null) {
+            if (node.item.equals(item)) {
+                removeNode(node);
+                return true;
+            }
+            node = node.next;
+        }
         return false;
+    }
+    private void removeNode(Node<E> node) {
+        if (node.previous == null) {
+            head = node.next;
+        } else {
+            node.previous.next = node.next;
+        }
+        if (node.next == null) {
+            tail = node.previous;
+        } else {
+            node.next.previous = node.previous;
+        }
+        size--;
     }
 
     @Override
