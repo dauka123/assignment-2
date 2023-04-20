@@ -25,7 +25,7 @@ public class MyLinkedList<E> implements MyList{
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) != -1;
     }
 
     @Override
