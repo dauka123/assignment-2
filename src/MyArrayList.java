@@ -148,4 +148,16 @@ public class MyArrayList<T> implements MyList{
     public void sort() {
         Arrays.sort((T[]) arr, 0, size);
     }
+    public void addAllElements(int[] array, int index){
+        T[] arr2 = new T[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr2[i] =  arr[index+i];
+        }
+        for (int i = 0; i < array.length; i++) {
+            add(array[i],index+i);
+        }
+        for (int i = 0; i < arr2.length; i++) {
+            arr[size + i] = arr2[i];
+        }
+    }
 }
